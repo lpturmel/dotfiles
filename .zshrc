@@ -158,4 +158,5 @@ SPACESHIP_GIT_STATUS_SHOW=false
 
 alias vim="nvim"
 alias g="git"
-alias ls-"ls -G"
+alias ls="ls -G"
+alias rm="rm -rf"
