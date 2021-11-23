@@ -22,6 +22,7 @@ set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
+set sidescrolloff=10
 set expandtab
 "let loaded_matchparen = 1
 set shell=alacritty
@@ -148,5 +149,4 @@ set exrc
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:
-
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]

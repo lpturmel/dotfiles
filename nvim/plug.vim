@@ -33,6 +33,7 @@ if has("nvim")
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+  Plug 'chrisbra/Colorizer'
 endif
 
 call plug#end()

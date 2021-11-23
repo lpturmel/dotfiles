@@ -1,5 +1,8 @@
 " Description: Keymaps
 
+" Move to file
+map gf :edit <cfile><cr>
+
 nnoremap <S-C-p> "0p
 " Delete without yank
 nnoremap <leader>d "_d
