@@ -1,8 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -13,7 +8,7 @@ export ZSH="/Users/lpturmel/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="cloud"
+ZSH_THEME="common"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -28,14 +23,13 @@ ZSH_THEME="cloud"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -50,8 +44,9 @@ ZSH_THEME="cloud"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -75,7 +70,7 @@ ZSH_THEME="cloud"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,14 +100,62 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Plugins {{{
+# ==============================================================================
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+    # Load the Antibody plugin manager for zsh.
+    source <(antibody init)
+
+    # Setup required env var for oh-my-zsh plugins
+    export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+
+    antibody bundle robbyrussell/oh-my-zsh
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/adb
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/bower
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/composer
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/cp
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/dnf
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/git
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/gulp
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/jsontools
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/jump
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/nmap
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/pass
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/rsync
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
+    antibody bundle robbyrussell/oh-my-zsh path:plugins/z
+
+    # Other bundles
+    antibody bundle sampson-chen/sack
+    #antibody bundle jessarcher/zsh-artisan
+    #antibody bundle /home/jess/.oh-my-zsh/custom/plugins/artisan
+    antibody bundle zsh-users/zsh-autosuggestions
+
+    # This needs to be the last bundle.
+    antibody bundle zsh-users/zsh-syntax-highlighting
+
+    # Load the theme.
+    # antibody bundle robbyrussell/oh-my-zsh path:themes/robbyrussell.zsh-theme
+    # antibody bundle dracula/zsh
+
+
+# }}}
+#
+# Set CLICOLOR if you want Ansi Colors in iTerm2 
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_GIT_STATUS_SHOW=false
 
 alias vim="nvim"
 alias g="git"
+alias ls-"ls -G"
