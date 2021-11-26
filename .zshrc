@@ -115,21 +115,15 @@ source $ZSH/oh-my-zsh.sh
     antibody bundle robbyrussell/oh-my-zsh path:plugins/composer
     antibody bundle robbyrussell/oh-my-zsh path:plugins/cp
     antibody bundle robbyrussell/oh-my-zsh path:plugins/dnf
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
     antibody bundle robbyrussell/oh-my-zsh path:plugins/git
     antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow
     antibody bundle robbyrussell/oh-my-zsh path:plugins/gulp
     antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
     antibody bundle robbyrussell/oh-my-zsh path:plugins/jsontools
     antibody bundle robbyrussell/oh-my-zsh path:plugins/jump
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/nmap
     antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
     antibody bundle robbyrussell/oh-my-zsh path:plugins/pass
     antibody bundle robbyrussell/oh-my-zsh path:plugins/rsync
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
     antibody bundle robbyrussell/oh-my-zsh path:plugins/z
 
     # Other bundles
