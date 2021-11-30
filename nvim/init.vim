@@ -9,7 +9,7 @@ scriptencoding utf-8
 if !1 | finish | endif
 
 set nocompatible
-set number
+set number relativenumber
 syntax enable
 set fileencodings=utf-8,latin
 set encoding=utf-8
