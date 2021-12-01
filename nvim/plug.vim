@@ -34,6 +34,7 @@ if has("nvim")
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'chrisbra/Colorizer'
+  Plug 'tpope/vim-surround'
 endif
 
 call plug#end()
