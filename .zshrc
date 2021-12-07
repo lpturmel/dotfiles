@@ -150,7 +150,7 @@ export TERM=xterm-256color
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_SHOW=false
 
-alias vim="nvim"
+alias vim="~/nvim-06/bin/nvim"
 alias g="git"
 alias ls="ls -G"
 alias rm="rm -rf"

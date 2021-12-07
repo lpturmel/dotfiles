@@ -150,5 +150,6 @@ set exrc
 
 " vim: set foldmethod=marker foldlevel=0:
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+set completeopt=menu,menuone,noselect
 " TextEdit might fail if hidden is not set.                                                                                                                                              
 set hidden

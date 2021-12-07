@@ -20,9 +20,6 @@ if has("nvim")
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'onsails/lspkind-nvim'
@@ -31,10 +28,19 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
   Plug 'chrisbra/Colorizer'
   Plug 'tpope/vim-surround'
+  Plug 'github/copilot.vim'
+  " Ultinsnips
+  Plug 'SirVer/ultisnips'
+  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" vim-cmp
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
 endif
 
 call plug#end()
