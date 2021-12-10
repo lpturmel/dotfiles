@@ -150,7 +150,11 @@ export TERM=xterm-256color
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_SHOW=false
 
-alias vim="~/nvim-06/bin/nvim"
+alias vim="nvim"
 alias g="git"
 alias ls="ls -G"
 alias rm="rm -rf"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
