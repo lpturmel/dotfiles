@@ -25,7 +25,7 @@ set scrolloff=10
 set sidescrolloff=10
 set expandtab
 "let loaded_matchparen = 1
-set shell=alacritty
+" set shell=kitty
 set backupskip=/tmp/*,/private/tmp/*
 
 " incremental substitution (neovim)
@@ -149,7 +149,6 @@ set exrc
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
-set completeopt=menu,menuone,noselect
+" set completeopt=menu,menuone,noselect
 " TextEdit might fail if hidden is not set.                                                                                                                                              
 set hidden
