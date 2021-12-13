@@ -4,7 +4,9 @@ endif
 
 call plug#begin()
 
+" Theme
 Plug 'ful1e5/onedark.nvim' 
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
@@ -16,6 +18,8 @@ if has("nvim")
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
   Plug 'folke/lsp-colors.nvim'
@@ -27,11 +31,11 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+ " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'chrisbra/Colorizer'
   Plug 'tpope/vim-surround'
   Plug 'github/copilot.vim'
-" vim-cmp
+" Completion
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -39,6 +43,10 @@ if has("nvim")
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'terrortylor/nvim-comment'
+  " post install (yarn install | npm install) then load plugin only for editing supported files
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
+  Plug 'dense-analysis/ale'
 endif
 
 call plug#end()

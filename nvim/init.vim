@@ -152,3 +152,6 @@ set exrc
 " set completeopt=menu,menuone,noselect
 " TextEdit might fail if hidden is not set.                                                                                                                                              
 set hidden
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
