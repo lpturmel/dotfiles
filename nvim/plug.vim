@@ -31,9 +31,6 @@ if has("nvim")
   Plug 'chrisbra/Colorizer'
   Plug 'tpope/vim-surround'
   Plug 'github/copilot.vim'
-  " Ultinsnips
-  Plug 'SirVer/ultisnips'
-  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " vim-cmp
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/cmp-buffer'
