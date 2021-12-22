@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # Setup zsh common theme
-echo "Installing common zsh theme..."
-wget -O $ZSH_CUSTOM/themes/common.zsh-theme https://raw.githubusercontent.com/jackharrisonsherlock/common/master/common.zsh-theme
+echo "Installing Powerlevel10k zsh theme..."
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+echo "Installing lsd..."
+brew install lsd
+
 echo "Done installing common zsh theme..."
