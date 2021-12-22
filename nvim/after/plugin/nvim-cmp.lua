@@ -1,15 +1,17 @@
-if !exists('g:loaded_cmp') | finish | endif
+local ok, luasnip, nvim_cmp = pcall(require,"luasnip", "nvim-cmp")
+if not ok then
+  return
+end
+-- -- Set completeopt to have a better completion experience
+vim.o.completeopt="menuone,noinsert,noselect"
 
-set completeopt=menuone,noinsert,noselect
-
-lua <<EOF
   local cmp = require'cmp'
   local lspkind = require'lspkind'
 
   cmp.setup({
     snippet = {
       expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -34,5 +36,3 @@ lua <<EOF
   })
 
   vim.cmd [[highlight! default link CmpItemKind CmpItemMenuDefault]]
-EOF
-
