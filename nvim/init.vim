@@ -153,5 +153,6 @@ set exrc
 " TextEdit might fail if hidden is not set.                                                                                                                                              
 set hidden
 
+" Prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0

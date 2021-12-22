@@ -1,13 +1,9 @@
-if !exists('g:lspconfig')
-  finish
-endif
-
-lua << EOF
+local ok, nvim_lsp = pcall(require, "lspconfig")
+if not ok then
+  return
+end
 --vim.lsp.set_log_level("debug")
-EOF
 
-lua << EOF
-local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
 require'nvim-treesitter.configs'.setup {
@@ -107,7 +103,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
+local capabilities = require'cmp_nvim_lsp'.update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
@@ -128,5 +124,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
   }
 )
-
-EOF
