@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'ful1e5/onedark.nvim' 
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
@@ -42,11 +41,13 @@ if has("nvim")
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+  " Comment
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'terrortylor/nvim-comment'
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-
   Plug 'dense-analysis/ale'
+
 endif
 
 call plug#end()

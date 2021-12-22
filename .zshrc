@@ -110,22 +110,6 @@ source $ZSH/oh-my-zsh.sh
     export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
     antibody bundle robbyrussell/oh-my-zsh
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/adb
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/bower
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/composer
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/cp
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/dnf
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/git
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/gulp
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/jsontools
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/jump
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/pass
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/rsync
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/z
-
     # Other bundles
     antibody bundle sampson-chen/sack
     #antibody bundle jessarcher/zsh-artisan
