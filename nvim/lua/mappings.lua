@@ -45,3 +45,7 @@ vim.api.nvim_set_keymap('n', '<C-w><left>', '<C-w><', {})
 vim.api.nvim_set_keymap('n', '<C-w><right>', '<C-w>>', {})
 vim.api.nvim_set_keymap('n', '<C-w><up>', '<C-w>+', {})
 vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
+
+
+-- Remap tag stack go back from definition
+vim.api.nvim_set_keymap('n', 'gb', '<C-t>', {})
