@@ -1,3 +1,6 @@
+-- Plugin config
+require('plugins')
+
 -- Options
 require('options')
 
@@ -6,9 +9,6 @@ require('colors')
 
 -- Globals
 require('globals')
-
--- Plugin config
-require('plugins')
 
 -- Mappings config
 require('mappings')
