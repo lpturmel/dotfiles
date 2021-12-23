@@ -1,7 +1,0 @@
-{
-    "coc.preferences.formatOnSaveFiletypes": ["*"],
-    "prettier.tabWidth": 4,
-    "suggest.disableMenu": true,
-    "suggest.enablePreselect": false,
-    "suggest.noselect": true
-}
