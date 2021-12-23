@@ -15,6 +15,7 @@ harpoon.setup({
 
 -- Mark
 vim.api.nvim_set_keymap('n', 'hm', '<cmd>lua require("harpoon.mark").add_file()<cr>', { noremap = true  })
+
 -- Menu
 vim.api.nvim_set_keymap('n', 'hf', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', { noremap = true  })
 
