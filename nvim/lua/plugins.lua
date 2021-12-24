@@ -15,7 +15,6 @@ return require('packer').startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use 'ful1e5/onedark.nvim' 
-  use 'nvim-lua/plenary.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'cohama/lexima.vim'
@@ -46,4 +45,7 @@ return require('packer').startup(function()
   -- Post install (yarn install | npm install) then load usein only for editing supported files
   use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
   use 'dense-analysis/ale'
+  -- File Navigation
+  use 'nvim-lua/plenary.nvim'
+  use 'ThePrimeagen/harpoon'
   end)
