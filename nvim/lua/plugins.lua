@@ -14,6 +14,12 @@ return require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons' },
+  }
+  use {"akinsho/toggleterm.nvim"}
   use 'ful1e5/onedark.nvim' 
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
