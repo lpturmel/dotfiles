@@ -24,6 +24,8 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'cohama/lexima.vim'
+  -- Git
+  use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} }
   -- LSP
   use 'neovim/nvim-lspconfig'
   use {'tami5/lspsaga.nvim', { branch = 'nvim51' }}

@@ -127,6 +127,10 @@ nvim_lsp.rust_analyzer.setup({
             procMacro = {
                 enable = true
             },
+            diagnostics = {
+                disabled = { "macro-error" }
+             
+            }
         }
     }
 })
