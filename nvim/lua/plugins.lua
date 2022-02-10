@@ -30,9 +30,15 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use {'tami5/lspsaga.nvim', { branch = 'nvim51' }}
   use 'folke/lsp-colors.nvim'
-  use 'L3MON4D3/LuaSnip'
-  use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
   use 'onsails/lspkind-nvim'    
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+  use "rafamadriz/friendly-snippets"
+  use { 'saadparwaiz1/cmp_luasnip' }
+
+  -- Utils
+  use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'

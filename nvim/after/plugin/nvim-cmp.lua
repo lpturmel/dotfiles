@@ -24,12 +24,13 @@ vim.o.completeopt="menuone,noinsert,noselect"
         select = true
       }),
     },
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-    }, {
-      { name = 'buffer' },
-      { name = 'luasnip' },
-    }),
+    sources = {
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "nvim_lua" },
+      { name = "path" },
+  },
     formatting = {
       format = lspkind.cmp_format({with_text = false, maxwidth = 50})
     }
