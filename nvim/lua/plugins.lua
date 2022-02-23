@@ -6,10 +6,12 @@ end
 
 
 return require('packer').startup(function()
+  -- local plugins
+  use "/Users/lpturmel/dev/nvim/plugins/hmap.nvim"
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- Status bar
-  use 'kyazdani42/nvim-web-devicons'    
+  use 'kyazdani42/nvim-web-devicons'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
@@ -20,7 +22,7 @@ return require('packer').startup(function()
       'kyazdani42/nvim-web-devicons' },
   }
   use {"akinsho/toggleterm.nvim"}
-  use 'ful1e5/onedark.nvim' 
+  use 'ful1e5/onedark.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'cohama/lexima.vim'
@@ -30,7 +32,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use {'tami5/lspsaga.nvim', { branch = 'nvim51' }}
   use 'folke/lsp-colors.nvim'
-  use 'onsails/lspkind-nvim'    
+  use 'onsails/lspkind-nvim'
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
@@ -60,6 +62,5 @@ return require('packer').startup(function()
   use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
   use 'dense-analysis/ale'
   -- File Navigation
-  use 'nvim-lua/plenary.nvim'
   use 'ThePrimeagen/harpoon'
   end)

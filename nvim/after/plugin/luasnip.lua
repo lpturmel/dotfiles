@@ -17,4 +17,4 @@ ls.snippets = {
     }
 }
 
-vim.api.nvim_set_keymap('n', 'sls', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>ls', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>', {})

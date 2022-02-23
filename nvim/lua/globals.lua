@@ -1,3 +1,8 @@
+--
+P = function(s)
+    print(vim.inspect(s))
+    return s
+end
 -- Globals
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g['prettier#autoformat'] = 1

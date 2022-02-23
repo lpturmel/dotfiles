@@ -6,30 +6,7 @@ end
 
 local protocol = require'vim.lsp.protocol'
 
-require'nvim-treesitter.configs'.setup {
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-    config = {
-      javascript = {
-        __default = '// %s',
-        jsx_element = '{/* %s */}',
-        jsx_fragment = '{/* %s */}',
-        jsx_attribute = '// %s',
-        comment = '// %s'
-      },
-    
-      typescript = {
-        __default = '// %s',
-        tsx_element = '{/* %s */}',
-        tsx_fragment = '{/* %s */}',
-        tsx_attribute = '// %s',
-        comment = '// %s'
-      }
-    }
-  }
-}
--- Use an on_attach function to only map the following keys 
+-- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -106,15 +83,60 @@ end
 local capabilities = require'cmp_nvim_lsp'.update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
--- TS
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
-  capabilities = capabilities
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- Bash
+nvim_lsp.bashls.setup {}
+
+-- CSS
+nvim_lsp.cssls.setup {
+    capabilities = capabilities
+}
+
+-- Go
+nvim_lsp.gopls.setup {
+    capabilities = capabilities
+}
+
+-- GraphQL
+nvim_lsp.graphql.setup {
+    capabilities = capabilities,
+    filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript" }
+}
+-- Lua
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+nvim_lsp.sumneko_lua.setup {
+    capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
 -- Rust
 nvim_lsp.rust_analyzer.setup({
+    capabilities = capabilities,
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
@@ -130,14 +152,21 @@ nvim_lsp.rust_analyzer.setup({
             },
             diagnostics = {
                 disabled = { "macro-error" }
-             
             }
         }
     }
 })
 
--- Go
-nvim_lsp.gopls.setup {}
+-- TailwindCSS
+nvim_lsp.tailwindcss.setup {}
+
+-- TS
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+  capabilities = capabilities
+}
+
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

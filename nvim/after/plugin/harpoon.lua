@@ -11,7 +11,7 @@ harpoon.setup({
         tmux_autoclose_windows = false,
         excluded_filetypes = { "harpoon" }
     }
-}) 
+})
 
 -- Mark
 vim.api.nvim_set_keymap('n', '\'m', '<cmd>lua require("harpoon.mark").add_file()<cr>', { noremap = true  })
