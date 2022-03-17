@@ -26,6 +26,6 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.wrap = false
 vim.o.cursorline = true
-vim.o.suffixesadd = '.c,.cpp,.h,.hpp,.hxx,.m,.mm,.php,.py,.rb,.sh,.swift,.yml,.yaml,.rust,.json,.js,.jsx,.ts,.tsx,.css,.md,.es'
+vim.o.suffixesadd = '.c,.cpp,.h,.hpp,.hxx,.m,.mm,.php,.py,.rb,.sh,.swift,.yml,.yaml,.rust,.json,.js,.jsx,.ts,.tsx,.css,.md,.es,.pl,.svelte'
 vim.o.exrc = true
 vim.o.hidden = true

@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- local plugins
   use "/Users/lpturmel/dev/nvim/plugins/hmap.nvim"
   -- Packer can manage itself
@@ -29,10 +29,10 @@ return require('packer').startup(function()
   -- Git
   use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} }
   -- LSP
-  use 'neovim/nvim-lspconfig'
-  use {'tami5/lspsaga.nvim', { branch = 'nvim51' }}
+  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
   use 'folke/lsp-colors.nvim'
   use 'onsails/lspkind-nvim'
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
@@ -63,4 +63,6 @@ return require('packer').startup(function()
   use 'dense-analysis/ale'
   -- File Navigation
   use 'ThePrimeagen/harpoon'
+  -- Mardown Preview
+  use {"ellisonleao/glow.nvim"}
   end)
