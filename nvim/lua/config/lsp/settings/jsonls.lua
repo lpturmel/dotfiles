@@ -175,7 +175,9 @@ local function extend(tab1, tab2)
   return tab1
 end
 
-local extended_schemas = extend(schemas, default_schemas)
+-- local extended_schemas = extend(schemas, default_schemas)
+-- Default schemas are not found, need to fix this
+local extended_schemas = schemas
 
 local opts = {
   settings = {

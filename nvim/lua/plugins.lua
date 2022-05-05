@@ -65,4 +65,5 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
   -- Mardown Preview
   use {"ellisonleao/glow.nvim"}
+  -- use 'tamago324/nlsp-settings.nvim'
   end)

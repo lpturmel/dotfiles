@@ -11,4 +11,4 @@ nvimtree.setup {
     --     auto_resize = true
     -- },
 }
-vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<space>b', '<cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})

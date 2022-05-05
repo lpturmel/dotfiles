@@ -18,6 +18,7 @@ treesitter_configs.setup {
   ensure_installed = {
     "javascript",
     "tsx",
+    "astro",
     "toml",
     "json",
     "yaml",
@@ -47,4 +48,4 @@ treesitter_configs.setup {
 }
 
 local parser_config =  treesitter_parsers.get_parser_configs()
-parser_config.tsx.used_by = { "javascript", "typescript.tsx" }
+parser_config.tsx.used_by = { "javascript", "typescript.tsx", "astro" }

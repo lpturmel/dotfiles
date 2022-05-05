@@ -1,9 +1,9 @@
-local ok, luasnip, nvim_cmp = pcall(require,"luasnip", "nvim-cmp")
+local ok, luasnip = pcall(require,"luasnip", "nvim-cmp")
 if not ok then
   return
 end
 -- -- Set completeopt to have a better completion experience
-vim.o.completeopt="menuone,noinsert,noselect"
+vim.opt.completeopt = {"menuone", "noinsert", "noselect" }
 
 local kind_icons = {
   Text = "",
@@ -33,7 +33,6 @@ local kind_icons = {
   TypeParameter = "",
 }
   local cmp = require'cmp'
-  local lspkind = require'lspkind'
 
   cmp.setup({
     snippet = {
@@ -42,6 +41,9 @@ local kind_icons = {
       end,
     },
     mapping = {
+        -- TJ Devries mappings used to debug
+      -- ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+      -- ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -50,6 +52,9 @@ local kind_icons = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = true
       }),
+      -- ["<tab>"] = cmp.config.disable
+      ["<tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert  },
+      ["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert  }
     },
     sources = {
       { name = "nvim_lsp" },
@@ -73,9 +78,11 @@ local kind_icons = {
       return vim_item
     end,
   },
-    documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+   window = {
+       documentation = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        },
+   },
   experimental = {
     ghost_text = false,
     native_menu = false,
