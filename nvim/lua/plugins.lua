@@ -22,7 +22,6 @@ return require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons' },
   }
   use {"akinsho/toggleterm.nvim"}
-  use 'ful1e5/onedark.nvim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'cohama/lexima.vim'
@@ -66,4 +65,7 @@ return require('packer').startup(function(use)
   -- Mardown Preview
   use {"ellisonleao/glow.nvim"}
   -- use 'tamago324/nlsp-settings.nvim'
+  -- Themes
+  use 'ful1e5/onedark.nvim'
+  use 'arcticicestudio/nord-vim'
   end)

@@ -3,12 +3,8 @@ if not ok then
   return
 end
 nvimtree.setup {
-    -- auto_close = true,
-    -- diagnostics = {
-    --     enable = true,
-    -- },
-    -- view = {
-    --     auto_resize = true
-    -- },
 }
-vim.api.nvim_set_keymap('n', '<space>b', '<cmd>NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<space>b', '<cmd>lua require"nvim-tree".toggle(false, true)<CR>', {noremap = true, silent = true})
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { callback = function()
+    nvimtree.toggle()
+end})
