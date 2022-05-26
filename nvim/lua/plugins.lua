@@ -69,4 +69,6 @@ return require('packer').startup(function(use)
   use 'ful1e5/onedark.nvim'
   use 'arcticicestudio/nord-vim'
   use "EdenEast/nightfox.nvim"
+  -- Profiling
+  use 'tweekmonster/startuptime.vim'
   end)
