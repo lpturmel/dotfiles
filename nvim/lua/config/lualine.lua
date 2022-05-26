@@ -4,6 +4,7 @@ if not ok then
 end
 lualine.setup {
   options = {
-    theme = "onedark"
+    theme = "nordfox"
+    -- theme = "onedark"
   }
 }

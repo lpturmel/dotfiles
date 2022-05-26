@@ -68,4 +68,5 @@ return require('packer').startup(function(use)
   -- Themes
   use 'ful1e5/onedark.nvim'
   use 'arcticicestudio/nord-vim'
+  use "EdenEast/nightfox.nvim"
   end)
