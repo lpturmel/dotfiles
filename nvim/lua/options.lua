@@ -33,3 +33,5 @@ opts.cursorline = true
 opts.suffixesadd = '.c,.cpp,.h,.hpp,.hxx,.m,.mm,.php,.py,.rb,.sh,.swift,.yml,.yaml,.rust,.json,.js,.jsx,.ts,.tsx,.css,.md,.es,.pl,.svelte,.astro'
 opts.exrc = true
 opts.hidden = true
+opts.listchars = "eol:↵"
+opts.list = true
