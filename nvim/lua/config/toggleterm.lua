@@ -5,7 +5,7 @@ end
 toggleterm.setup{
     open_mapping = [[<c-\>]],
     shade_terminals = true,
-    direction = 'horizontal',
+    direction = 'tab',
     close_on_exit = true,
 }
 function _G.set_terminal_keymaps()

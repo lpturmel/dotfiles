@@ -9,7 +9,12 @@ local ok = pcall(require, "packer")
 
 if ok then
     -- Fix the floating color for nordfox theme
-    vim.cmd('colorscheme nordfox')
-    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#2D3441' })
+    -- vim.cmd('colorscheme nordfox')
+    -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#2D3441' })
+    --
+    -- Fix the floating color for gruvbox theme
+    vim.cmd('colorscheme gruvbox')
+    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282828' })
+    
 end
 

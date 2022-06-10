@@ -22,6 +22,15 @@ lsp_installer.on_server_ready(function(server)
         local rust_opts = require("config.lsp.settings.rust_analyzer")
         opts = vim.tbl_deep_extend("force", rust_opts, opts)
     end
+    -- JS stuff
+    if server.name == "tsserver" then
+        local ts_opts = require("config.lsp.settings.tsserver")
+        opts = vim.tbl_deep_extend("force", ts_opts, opts)
+    end
+    if server.name == "denols" then
+        local deno_opts = require("config.lsp.settings.denols")
+        opts = vim.tbl_deep_extend("force", deno_opts, opts)
+    end
 
     server:setup(opts)
 end)

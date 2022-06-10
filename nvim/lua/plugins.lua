@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }
 
   -- Utils
+  use 'ap/vim-css-color'
   use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -65,10 +66,12 @@ return require('packer').startup(function(use)
   -- Mardown Preview
   use {"ellisonleao/glow.nvim"}
   -- use 'tamago324/nlsp-settings.nvim'
+  --
   -- Themes
   use 'ful1e5/onedark.nvim'
   use 'arcticicestudio/nord-vim'
-  use "EdenEast/nightfox.nvim"
+  use 'EdenEast/nightfox.nvim'
+  use 'gruvbox-community/gruvbox'
   -- Profiling
   use 'tweekmonster/startuptime.vim'
   end)
