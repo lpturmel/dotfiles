@@ -1,3 +1,8 @@
+-- Disables
+vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true });
+vim.api.nvim_set_keymap('', '<Down>', '<Nop>', { noremap = true });
+vim.api.nvim_set_keymap('', '<Left>', '<Nop>', { noremap = true });
+vim.api.nvim_set_keymap('', '<Right>', '<Nop>', { noremap = true });
 -- Keymaps
 vim.api.nvim_set_keymap('', 'gf :edit', '<cfile><cr>', {})
 vim.api.nvim_set_keymap('n', '<S-C-p>', '"0p', { noremap = true })
