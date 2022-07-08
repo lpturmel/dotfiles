@@ -13,8 +13,8 @@ if ok then
     -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#2D3441' })
     --
     -- Fix the floating color for gruvbox theme
-    vim.cmd('colorscheme gruvbox')
-    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282828' })
+    vim.cmd('colorscheme tokyonight')
+    -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282828' })
     
 end
 

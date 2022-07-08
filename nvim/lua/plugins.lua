@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
   use 'arcticicestudio/nord-vim'
   use 'EdenEast/nightfox.nvim'
   use 'gruvbox-community/gruvbox'
+  use 'folke/tokyonight.nvim'
   -- Profiling
   use 'tweekmonster/startuptime.vim'
   end)

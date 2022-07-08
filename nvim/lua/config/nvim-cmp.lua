@@ -42,8 +42,8 @@ local kind_icons = {
     },
     mapping = {
         -- TJ Devries mappings used to debug
-      -- ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-      -- ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+      ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+      ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -53,8 +53,8 @@ local kind_icons = {
         select = true
       }),
       -- ["<tab>"] = cmp.config.disable
-      ["<tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert  },
-      ["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert  }
+      -- ["<tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert  },
+      -- ["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert  }
     },
     sources = {
       { name = "nvim_lsp" },

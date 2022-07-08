@@ -2,6 +2,5 @@ local ok, nvimtree = pcall(require, "nvim-tree")
 if not ok then
   return
 end
-nvimtree.setup {
-}
+nvimtree.setup {}
 vim.api.nvim_set_keymap('n', '<space>b', '<cmd>lua require"nvim-tree".toggle(false, true)<CR>', {noremap = true, silent = true})
