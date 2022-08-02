@@ -35,3 +35,4 @@ opts.exrc = true
 opts.hidden = true
 opts.listchars = "eol:↵"
 opts.list = true
+opts.shell = '/opt/homebrew/bin/fish'

@@ -10,3 +10,9 @@ require("config.lsp.lsp-installer")
 require("config.lsp.handler").setup()
 require("config.lsp.null-ls")
 
+-- print(require("config.lsp.init").setup())
+-- require('nlua.lsp.nvim').setup(lspconfig, {
+--   on_attach = require("config.lsp.handler").on_attach,
+--   capabilities = require("config.lsp.handler").capabilities,
+-- })
+

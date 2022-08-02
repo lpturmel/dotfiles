@@ -32,7 +32,8 @@ return require('packer').startup(function(use)
   use 'folke/lsp-colors.nvim'
   use 'onsails/lspkind-nvim'
   use("jose-elias-alvarez/null-ls.nvim")
-
+  use 'tjdevries/nlua.nvim'
+  use 'euclidianAce/BetterLua.vim'
   -- Snippets
   use 'L3MON4D3/LuaSnip'
   use "rafamadriz/friendly-snippets"

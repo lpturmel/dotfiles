@@ -5,6 +5,7 @@ vim.o.winblend = 0
 vim.o.wildoptions = 'pum'
 vim.o.pumblend = 5
 
+
 local ok = pcall(require, "packer")
 
 if ok then
@@ -15,6 +16,4 @@ if ok then
     -- Fix the floating color for gruvbox theme
     vim.cmd('colorscheme tokyonight')
     -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282828' })
-    
 end
-
