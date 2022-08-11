@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
   use 'chrisbra/Colorizer'
   use 'tpope/vim-surround'
   use 'github/copilot.vim'
+  use 'mg979/vim-visual-multi'
   -- Completion
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-buffer'

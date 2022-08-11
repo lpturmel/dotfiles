@@ -1,4 +1,4 @@
-local ok, treesitter = pcall(require, "nvim-treesitter")
+local ok, _ = pcall(require, "nvim-treesitter")
 if not ok then
   return
 end
@@ -7,6 +7,7 @@ local treesitter_parsers = require("nvim-treesitter.parsers")
 local treesitter_configs = require("nvim-treesitter.configs")
 
 treesitter_configs.setup {
+  ensure_installed = "all",
   highlight = {
     enable = true,
     disable = {},
@@ -14,16 +15,6 @@ treesitter_configs.setup {
   indent = {
     enable = false,
     disable = {},
-  },
-  ensure_installed = {
-    "javascript",
-    "tsx",
-    "astro",
-    "toml",
-    "json",
-    "yaml",
-    "html",
-    "rust"
   },
   context_commentstring = {
     enable = true,
@@ -48,4 +39,4 @@ treesitter_configs.setup {
 }
 
 local parser_config =  treesitter_parsers.get_parser_configs()
-parser_config.tsx.used_by = { "javascript", "typescript.tsx", "astro" }
+parser_config.tsx.used_by = { "javascript", "typescript.tsx" }
