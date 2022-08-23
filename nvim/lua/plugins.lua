@@ -31,7 +31,6 @@ return require('packer').startup(function(use)
   use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
   use 'folke/lsp-colors.nvim'
   use 'onsails/lspkind-nvim'
-  use("jose-elias-alvarez/null-ls.nvim")
   use 'tjdevries/nlua.nvim'
   use 'euclidianAce/BetterLua.vim'
   -- Snippets
@@ -77,4 +76,5 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   -- Profiling
   use 'tweekmonster/startuptime.vim'
+  use 'onsails/lspkind.nvim'
   end)

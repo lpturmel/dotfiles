@@ -5,17 +5,16 @@ require('plugins')
 require('options')
 
 -- Colors
- require('colors')
+require('colors')
 
 -- Globals
- require('globals')
+require('globals')
 
 -- Mappings config
- require('mappings')
+require('mappings')
 
 -- Lsp config
- require('config.lsp')
-
+require('config.lsp')
 
 -- plugins
 require("config.harpoon")

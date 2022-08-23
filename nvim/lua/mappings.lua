@@ -55,3 +55,7 @@ vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
 
 -- Remap tag stack go back from definition
 vim.api.nvim_set_keymap('n', 'gb', '<C-t>', {})
+vim.api.nvim_set_keymap('n', '\'j', '<cmd>lua require("harpoon.ui").nav_next()<cr>', { noremap = true  })
+
+-- LSP
+vim.api.nvim_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<cr>', { noremap = true  })
