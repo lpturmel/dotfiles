@@ -7,13 +7,17 @@ if not nvim_lsp_ok then
     return
 end
 
+local rt_ok,rt = pcall(require, "rust-tools")
+if not rt_ok then
+    return
+end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
         on_attach = function()
             local opts = { noremap = true, silent = true }
 
@@ -76,11 +80,43 @@ lsp_installer.setup({
         "sumneko_lua",
         "rust_analyzer",
         "tsserver",
+        "astro",
+        "tailwindcss",
+        "bashls",
+        "svelte",
     },
 })
 
+rt.setup({
+    on_attach = function()
+        -- Hover actions
+        vim.keymap.set("n", "<space>rha", rt.hover_actions.hover_actions, { buffer = bufnr })
+        -- Code action groups
+        vim.keymap.set("n", "<space>rca", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+    server = config({
+      flags = {
+        debounce_text_changes = 150,
+      },
+      -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+      settings = {
+        ["rust-analyzer"] = {
+          assist = {
+            importGranularity = "module",
+            importPrefix = "by_self",
+          },
+          cargo = {
+            loadOutDirsFromCheck = true,
+          },
+          procMacro = {
+            enable = true,
+          },
+        },
+      },
+    })
+})
+
 lspconfig.tsserver.setup(config(require"config.lsp.settings.tsserver"))
-lspconfig.rust_analyzer.setup(config(require"config.lsp.settings.rust_analyzer"))
 lspconfig.sumneko_lua.setup(config(require"config.lsp.settings.sumneko_lua"))
 
 require("nlua.lsp.nvim").setup(lspconfig, config{})

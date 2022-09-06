@@ -3,6 +3,7 @@ local opts = vim.o
 
 vim.cmd("set splitright")
 
+
 opts.encoding = 'utf-8'
 opts.number = true
 opts.relativenumber = true

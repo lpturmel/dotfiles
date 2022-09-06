@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim"}
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
-  use 'cohama/lexima.vim'
+  -- use 'cohama/lexima.vim'
   -- Git
   use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} }
   -- LSP
@@ -33,13 +33,14 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'tjdevries/nlua.nvim'
   use 'euclidianAce/BetterLua.vim'
+  use 'simrat39/rust-tools.nvim'
   -- Snippets
   use 'L3MON4D3/LuaSnip'
-  use "rafamadriz/friendly-snippets"
   use { 'saadparwaiz1/cmp_luasnip' }
+  -- use "rafamadriz/friendly-snippets"
 
   -- Utils
-  use 'ap/vim-css-color'
+  -- use 'ap/vim-css-color'
   use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -48,7 +49,7 @@ return require('packer').startup(function(use)
   use 'chrisbra/Colorizer'
   use 'tpope/vim-surround'
   use 'github/copilot.vim'
-  use 'mg979/vim-visual-multi'
+  -- use 'mg979/vim-visual-multi'
   -- Completion
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-buffer'
@@ -61,11 +62,11 @@ return require('packer').startup(function(use)
   use 'terrortylor/nvim-comment'
   -- Post install (yarn install | npm install) then load usein only for editing supported files
   use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
-  use 'dense-analysis/ale'
+  -- use 'dense-analysis/ale'
   -- File Navigation
   use 'ThePrimeagen/harpoon'
   -- Mardown Preview
-  use {"ellisonleao/glow.nvim"}
+  -- use {"ellisonleao/glow.nvim"}
   -- use 'tamago324/nlsp-settings.nvim'
   --
   -- Themes
@@ -75,6 +76,6 @@ return require('packer').startup(function(use)
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
   -- Profiling
-  use 'tweekmonster/startuptime.vim'
+  -- use 'tweekmonster/startuptime.vim'
   use 'onsails/lspkind.nvim'
   end)

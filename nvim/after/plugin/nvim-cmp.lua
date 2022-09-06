@@ -1,4 +1,4 @@
-local ok, luasnip = pcall(require,"luasnip", "nvim-cmp")
+local ok, luasnip = pcall(require,"luasnip")
 if not ok then
   return
 end
@@ -7,9 +7,13 @@ local lspkind = require("lspkind")
 -- -- Set completeopt to have a better completion experience
 vim.opt.completeopt = {"menuone", "noinsert", "noselect" }
 
-  local cmp = require'cmp'
+lspkind.init()
 
-  cmp.setup({
+local cmp = require "cmp"
+cmp.setup({
+    performance = {
+        debounce = 150,
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -22,19 +26,17 @@ vim.opt.completeopt = {"menuone", "noinsert", "noselect" }
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
     sources = {
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      --{ name = "nvim_lua" },
+      { name = "nvim_lua" },
+      { name = "nvim_lsp", max_item_count = 20 },
       { name = "path" },
+      -- { name = "luasnip", max_item_count = 5 },
+      { name = "buffer", keyword_length = 5 }
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      --vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.kind = lspkind.presets.default[vim_item.kind]
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
@@ -50,7 +52,7 @@ vim.opt.completeopt = {"menuone", "noinsert", "noselect" }
         },
    },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
   })
