@@ -37,8 +37,6 @@ return require('packer').startup(function(use)
   -- Snippets
   use 'L3MON4D3/LuaSnip'
   use { 'saadparwaiz1/cmp_luasnip' }
-  -- use "rafamadriz/friendly-snippets"
-
   -- Utils
   -- use 'ap/vim-css-color'
   use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
@@ -49,7 +47,6 @@ return require('packer').startup(function(use)
   use 'chrisbra/Colorizer'
   use 'tpope/vim-surround'
   use 'github/copilot.vim'
-  -- use 'mg979/vim-visual-multi'
   -- Completion
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-buffer'
@@ -62,19 +59,13 @@ return require('packer').startup(function(use)
   use 'terrortylor/nvim-comment'
   -- Post install (yarn install | npm install) then load usein only for editing supported files
   use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
-  -- use 'dense-analysis/ale'
+
   -- File Navigation
   use 'ThePrimeagen/harpoon'
   -- Mardown Preview
   -- use {"ellisonleao/glow.nvim"}
-  -- use 'tamago324/nlsp-settings.nvim'
-  --
   -- Themes
-  use 'ful1e5/onedark.nvim'
-  use 'arcticicestudio/nord-vim'
-  use 'EdenEast/nightfox.nvim'
-  use 'gruvbox-community/gruvbox'
-  use 'folke/tokyonight.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- Profiling
   -- use 'tweekmonster/startuptime.vim'
   use 'onsails/lspkind.nvim'

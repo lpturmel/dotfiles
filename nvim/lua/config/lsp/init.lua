@@ -121,7 +121,8 @@ lspconfig.sumneko_lua.setup(config(require"config.lsp.settings.sumneko_lua"))
 
 require("nlua.lsp.nvim").setup(lspconfig, config{})
 
-lspconfig.jsonls.setup(config(require("config.lsp.settings.jsonls")))
+-- lspconfig.jsonls.setup(config(require("config.lsp.settings.jsonls")))
+lspconfig.jsonls.setup(config())
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = "*.astro", command = "set filetype=astro"})
 lspconfig.astro.setup(config{})

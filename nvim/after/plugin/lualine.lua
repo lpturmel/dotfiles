@@ -4,6 +4,6 @@ if not ok then
 end
 lualine.setup {
   options = {
-    theme = "tokyonight"
+    theme = "catppuccin"
   }
 }

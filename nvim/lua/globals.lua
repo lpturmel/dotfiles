@@ -1,10 +1,9 @@
---
+-- Global functions
 P = function(s)
     print(vim.inspect(s))
     return s
 end
-
--- Globals
+-- Vim global options
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g['prettier#autoformat'] = 1
 vim.g['prettier#autoformat_require_pragma'] = 0
