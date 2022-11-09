@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
   -- Utils
   -- use 'ap/vim-css-color'
   use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
+  use {'nvim-treesitter/nvim-treesitter-context'}
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -58,7 +59,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
   -- Post install (yarn install | npm install) then load usein only for editing supported files
-  use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
+  -- use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
 
   -- File Navigation
   use 'ThePrimeagen/harpoon'

@@ -87,6 +87,11 @@ lsp_installer.setup({
     },
 })
 
+-- Format on save for rust
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = "*.rs", callback = function ()
+    vim.lsp.buf.formatting_sync()
+end})
+
 rt.setup({
     on_attach = function()
         -- Hover actions
@@ -133,6 +138,8 @@ lspconfig.svelte.setup(config{})
 lspconfig.bicep.setup(config{})
 lspconfig.prismals.setup(config{})
 lspconfig.tailwindcss.setup(config{})
+
+require"config.lsp.jsonx".setup()
 
 -- Setup LSP settings
 require("config.lsp.handler").setup()
