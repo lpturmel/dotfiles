@@ -1,0 +1,8 @@
+theme = "catppuccin_frappe"
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.lsp]
+display-messages = true
+# 5.4 helix tutor

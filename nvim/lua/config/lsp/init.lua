@@ -17,7 +17,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
+        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
         on_attach = function()
             local opts = { noremap = true, silent = true }
 
@@ -77,7 +77,6 @@ end
 lsp_installer.setup({
     ensure_installed = {
         "jsonls",
-        "sumneko_lua",
         "rust_analyzer",
         "tsserver",
         "astro",
@@ -122,9 +121,30 @@ rt.setup({
 })
 
 lspconfig.tsserver.setup(config(require"config.lsp.settings.tsserver"))
-lspconfig.sumneko_lua.setup(config(require"config.lsp.settings.sumneko_lua"))
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
-require("nlua.lsp.nvim").setup(lspconfig, config{})
+-- require("nlua.lsp.nvim").setup(lspconfig, config{})
 
 -- lspconfig.jsonls.setup(config(require("config.lsp.settings.jsonls")))
 lspconfig.jsonls.setup(config())
