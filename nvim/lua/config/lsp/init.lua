@@ -157,7 +157,6 @@ lspconfig.jsonls.setup(config())
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = "*.astro", command = "set filetype=astro"})
 lspconfig.astro.setup(config{})
-
 lspconfig.graphql.setup(config{})
 lspconfig.bashls.setup(config{})
 lspconfig.svelte.setup(config{})

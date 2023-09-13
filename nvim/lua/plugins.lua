@@ -1,73 +1,67 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-
-return require('packer').startup(function(use)
+return require('lazy').setup({
   -- local plugins
-  use "/Users/lpturmel/dev/nvim/plugins/hmap.nvim"
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  '/Users/lpturmel/dev/nvim/plugins/hmap.nvim',
   -- Status bar
-  use 'kyazdani42/nvim-web-devicons'
-  use {
+  'kyazdani42/nvim-web-devicons',
+  {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
-  use {
+    dependencies = {'kyazdani42/nvim-web-devicons', opt = true}
+  },
+  {
     'kyazdani42/nvim-tree.lua',
-    requires = {
+    dependencies = {
       'kyazdani42/nvim-web-devicons' },
-  }
-  use {"akinsho/toggleterm.nvim"}
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  -- use 'cohama/lexima.vim'
+  },
+  {"akinsho/toggleterm.nvim"},
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
   -- Git
-  use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} }
+  { 'TimUntersberger/neogit', dependencies = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} },
   -- LSP
-  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
-  use 'folke/lsp-colors.nvim'
-  use 'onsails/lspkind-nvim'
-  use 'tjdevries/nlua.nvim'
-  use 'euclidianAce/BetterLua.vim'
-  use 'simrat39/rust-tools.nvim'
+  {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'},
+  'folke/lsp-colors.nvim',
+  'onsails/lspkind-nvim',
+  'tjdevries/nlua.nvim',
+  'euclidianAce/BetterLua.vim',
+  'simrat39/rust-tools.nvim',
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use { 'saadparwaiz1/cmp_luasnip' }
+  'L3MON4D3/LuaSnip',
+  { 'saadparwaiz1/cmp_luasnip' },
   -- Utils
-  -- use 'ap/vim-css-color'
-  use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
-  use {'nvim-treesitter/nvim-treesitter-context'}
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use 'windwp/nvim-autopairs'
-  use 'chrisbra/Colorizer'
-  use 'tpope/vim-surround'
-  use 'github/copilot.vim'
+  {'nvim-treesitter/nvim-treesitter',  build = ':TSUpdate' },
+  {'nvim-treesitter/nvim-treesitter-context'},
+  'nvim-lua/popup.nvim',
+  'nvim-lua/plenary.nvim',
+  'nvim-telescope/telescope.nvim',
+  'windwp/nvim-autopairs',
+  'chrisbra/Colorizer',
+  'tpope/vim-surround',
+  'github/copilot.vim',
   -- Completion
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  'neovim/nvim-lspconfig',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
   -- Comment
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'terrortylor/nvim-comment'
-  -- Post install (yarn install | npm install) then load usein only for editing supported files
-  -- use {'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' }}
-
-  -- File Navigation
-  use 'ThePrimeagen/harpoon'
-  -- Mardown Preview
-  -- use {"ellisonleao/glow.nvim"}
+  'JoosepAlviste/nvim-ts-context-commentstring',
+  'terrortylor/nvim-comment',
+  'ThePrimeagen/harpoon',
   -- Themes
-  use { "catppuccin/nvim", as = "catppuccin" }
-  -- Profiling
-  -- use 'tweekmonster/startuptime.vim'
-  use 'onsails/lspkind.nvim'
-  end)
+  { "catppuccin/nvim", as = "catppuccin" },
+  'onsails/lspkind.nvim'
+})
