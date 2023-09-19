@@ -1,5 +1,5 @@
 -- Plugin config
--- require('plugins')
+require('plugins')
 
 -- Options
 require('options')

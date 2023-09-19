@@ -12,8 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
-  -- local plugins
-  '/Users/lpturmel/dev/nvim/plugins/hmap.nvim',
   -- Status bar
   'kyazdani42/nvim-web-devicons',
   {
@@ -38,7 +36,7 @@ return require('lazy').setup({
   'euclidianAce/BetterLua.vim',
   'simrat39/rust-tools.nvim',
   -- Snippets
-  'L3MON4D3/LuaSnip',
+  { 'L3MON4D3/LuaSnip', version = "2.*", build = "make install_jsregexp" },
   { 'saadparwaiz1/cmp_luasnip' },
   -- Utils
   {'nvim-treesitter/nvim-treesitter',  build = ':TSUpdate' },
