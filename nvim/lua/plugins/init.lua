@@ -17,7 +17,6 @@ return {
   'github/copilot.vim',
   -- Comment
   'JoosepAlviste/nvim-ts-context-commentstring',
-  'terrortylor/nvim-comment',
   -- Themes
   { "catppuccin/nvim", as = "catppuccin" },
 }

@@ -93,6 +93,9 @@ vim.api.nvim_create_autocmd("BufWritePre", { pattern = "*.rs", callback = functi
         buffer = buf,
     })
 end})
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead'}, { pattern = "*.bicep", callback = function ()
+        vim.cmd.set "filetype=bicep"
+end})
 
 rt.setup({
     on_attach = function()
