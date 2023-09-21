@@ -4,9 +4,16 @@ return {
     config = function()
         local lualine = require("lualine")                                              
         lualine.setup {
-          options = {
-            theme = "catppuccin"
-          }
+            options = {
+                theme = "catppuccin"
+            },
+            sections = {
+              lualine_b = {
+                'branch', 'diff',
+                { 
+                    'diagnostics', symbols = {error = '', warn = '', info = '', hint = ''} }
+                }
+            }
         }
     end
 }

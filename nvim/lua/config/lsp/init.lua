@@ -86,17 +86,6 @@ lsp_installer.setup({
     },
 })
 
--- Format on save for rust
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = "*.rs", callback = function ()
-     vim.lsp.buf.format({
-        timeout_ms = 3000,
-        buffer = buf,
-    })
-end})
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead'}, { pattern = "*.bicep", callback = function ()
-        vim.cmd.set "filetype=bicep"
-end})
-
 rt.setup({
     on_attach = function()
         -- Hover actions
@@ -108,7 +97,6 @@ rt.setup({
       flags = {
         debounce_text_changes = 150,
       },
-      -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
       settings = {
         ["rust-analyzer"] = {
           checkOnSave = {
@@ -153,18 +141,30 @@ lspconfig.lua_ls.setup {
   },
 }
 
--- require("nlua.lsp.nvim").setup(lspconfig, config{})
-
--- lspconfig.jsonls.setup(config(require("config.lsp.settings.jsonls")))
 lspconfig.jsonls.setup(config())
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = "*.astro", command = "set filetype=astro"})
 lspconfig.astro.setup(config{})
+
 lspconfig.graphql.setup(config{})
+
 lspconfig.bashls.setup(config{})
+
 lspconfig.svelte.setup(config{})
-lspconfig.bicep.setup(config{})
-lspconfig.prismals.setup(config{})
-lspconfig.tailwindcss.setup(config{})
+
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead'}, { pattern = "*.bicep", command = "set filetype=bicep"})
+lspconfig.bicep.setup(config {})
+
+lspconfig.prismals.setup(config  {})
+
+lspconfig.tailwindcss.setup(config {})
+
+-- format on save
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = {"*.ts", "*.tsx", "*.rs", "*.svelte", "*.bicep"}, callback = function ()
+     vim.lsp.buf.format({
+        timeout_ms = 3000,
+        buffer = buf,
+    })
+end})
 
 require("config.lsp.handler").setup()

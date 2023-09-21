@@ -6,7 +6,7 @@ return {
         local treesitter_configs = require("nvim-treesitter.configs")
 
         treesitter_configs.setup {
-          ensure_installed = "all",
+          ensure_installed = { "rust", "typescript", "javascript", "tsx", "json", "yaml", "html", "css", "bash", "lua", "bicep", "svelte", "go", "c", "c_sharp", "cpp" },
           highlight = {
             enable = true,
             disable = {},

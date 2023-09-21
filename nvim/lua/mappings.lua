@@ -37,22 +37,21 @@ vim.api.nvim_set_keymap('n', 'sv', ':vsplit<Return><C-w>w', {})
 
 -- Move window
 vim.api.nvim_set_keymap('n', '<Space>', '<C-w>w', {})
-vim.api.nvim_set_keymap('', 's<left>', '<C-w>h', {})
-vim.api.nvim_set_keymap('', 's<up>', '<C-w>k', {})
-vim.api.nvim_set_keymap('', 's<down>', '<C-w>j', {})
-vim.api.nvim_set_keymap('', 's<right>', '<C-w>l', {})
+vim.api.nvim_set_keymap('', 's<Left>', '<C-w>h', {})
+vim.api.nvim_set_keymap('', 's<Up>', '<C-w>k', {})
+vim.api.nvim_set_keymap('', 's<Down>', '<C-w>j', {})
+vim.api.nvim_set_keymap('', 's<Right>', '<C-w>l', {})
 vim.api.nvim_set_keymap('', 'sh', '<C-w>h', {})
 vim.api.nvim_set_keymap('', 'sk', '<C-w>k', {})
 vim.api.nvim_set_keymap('', 'sj', '<C-w>j', {})
 vim.api.nvim_set_keymap('', 'sl', '<C-w>l', {})
 
 -- Resize window
-vim.api.nvim_set_keymap('n', '<C-w><left>', '<C-w><', {})
-vim.api.nvim_set_keymap('n', '<C-w><right>', '<C-w>>', {})
-vim.api.nvim_set_keymap('n', '<C-w><up>', '<C-w>+', {})
-vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
+vim.api.nvim_set_keymap('n', '<C-w><Left>', '<C-w><', {})
+vim.api.nvim_set_keymap('n', '<C-w><Right>', '<C-w>>', {})
+vim.api.nvim_set_keymap('n', '<C-w><Up>', '<C-w>+', {})
+vim.api.nvim_set_keymap('n', '<C-w><Down>', '<C-w>-', {})
 
 
 -- Remap tag stack go back from definition
 vim.api.nvim_set_keymap('n', 'gb', '<C-t>', {})
-vim.api.nvim_set_keymap('n', '\'j', '<cmd>lua require("harpoon.ui").nav_next()<cr>', { noremap = true  })
