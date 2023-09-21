@@ -164,7 +164,4 @@ lspconfig.bicep.setup(config{})
 lspconfig.prismals.setup(config{})
 lspconfig.tailwindcss.setup(config{})
 
-require"config.lsp.jsonx".setup()
-
--- Setup LSP settings
 require("config.lsp.handler").setup()
