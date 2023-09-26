@@ -1,6 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = {'kyazdani42/nvim-web-devicons', opt = true},
+    dependencies = {'nvim-tree/nvim-web-devicons', opt = true},
     config = function()
         local lualine = require("lualine")                                              
         lualine.setup {
@@ -11,7 +11,7 @@ return {
               lualine_b = {
                 'branch', 'diff',
                 { 
-                    'diagnostics', symbols = {error = '', warn = '', info = '', hint = ''} }
+                    'diagnostics', symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} }
                 }
             }
         }

@@ -3,7 +3,7 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   -- LSP
-  'neovim/nvim-lspconfig',
+ 'neovim/nvim-lspconfig',
   'williamboman/nvim-lsp-installer',
   'folke/lsp-colors.nvim',
   'onsails/lspkind-nvim',

@@ -2,6 +2,7 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
         'neovim/nvim-lspconfig',
+        'L3MON4D3/LuaSnip',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-path',
@@ -10,7 +11,6 @@ return {
         'saadparwaiz1/cmp_luasnip'
     },
     config = function()
-
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
         local cmp = require "cmp"

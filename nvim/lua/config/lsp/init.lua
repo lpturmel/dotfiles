@@ -118,7 +118,7 @@ rt.setup({
 })
 
 lspconfig.tsserver.setup(config(require"config.lsp.settings.tsserver"))
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup(config({
   settings = {
     Lua = {
       runtime = {
@@ -139,7 +139,7 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+}))
 
 lspconfig.jsonls.setup(config())
 
