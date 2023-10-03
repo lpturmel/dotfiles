@@ -141,7 +141,11 @@ lspconfig.lua_ls.setup(config({
   },
 }))
 
-lspconfig.jsonls.setup(config())
+lspconfig.jsonls.setup(config({
+    init_options = {
+      provideFormatter = true
+    }
+}))
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = "*.astro", command = "set filetype=astro"})
 lspconfig.astro.setup(config{})
@@ -160,7 +164,7 @@ lspconfig.prismals.setup(config  {})
 lspconfig.tailwindcss.setup(config {})
 
 -- format on save
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = {"*.ts", "*.tsx", "*.rs", "*.svelte", "*.bicep"}, callback = function ()
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = {"*.json", "*.ts", "*.tsx", "*.rs", "*.svelte", "*.bicep"}, callback = function ()
      vim.lsp.buf.format({
         timeout_ms = 3000,
         buffer = buf,
