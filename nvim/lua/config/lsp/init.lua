@@ -11,13 +11,22 @@ local rt_ok,rt = pcall(require, "rust-tools")
 if not rt_ok then
     return
 end
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+default_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local configs = require 'lspconfig.configs'
+
+configs.hulkls = {
+    default_config = {
+      cmd = { 'hulkls' },
+      root_dir = lspconfig.util.root_pattern('main.json'),
+      filetypes = { 'json' },
+    },
+}
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
+        capabilities = default_capabilities,
         on_attach = function()
             local opts = { noremap = true, silent = true }
 
@@ -162,6 +171,8 @@ lspconfig.bicep.setup(config {})
 lspconfig.prismals.setup(config  {})
 
 lspconfig.tailwindcss.setup(config {})
+
+lspconfig.hulkls.setup({})
 
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre", { pattern = {"*.json", "*.ts", "*.tsx", "*.rs", "*.svelte", "*.bicep"}, callback = function ()
