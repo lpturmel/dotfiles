@@ -9,3 +9,6 @@ starship init fish | source
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+pr-tracker pr azdo -o '2020Development' -p 'ARGvengers' -r thanos,vision
+pr-tracker pr azdo -o '2020Development' -p 'Hulk IaC' -r hulk-iac
