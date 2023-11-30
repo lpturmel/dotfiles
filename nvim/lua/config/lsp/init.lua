@@ -1,13 +1,13 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-  return
+    return
 end
 local nvim_lsp_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not nvim_lsp_ok then
     return
 end
 
-local rt_ok,rt = pcall(require, "rust-tools")
+local rt_ok, rt = pcall(require, "rust-tools")
 if not rt_ok then
     return
 end
@@ -18,9 +18,9 @@ local configs = require 'lspconfig.configs'
 
 configs.hulkls = {
     default_config = {
-      cmd = { 'hulkls' },
-      root_dir = lspconfig.util.root_pattern('main.json'),
-      filetypes = { 'json' },
+        cmd = { 'hulkls' },
+        root_dir = lspconfig.util.root_pattern('main.json'),
+        filetypes = { 'json' }
     },
 }
 
@@ -103,83 +103,89 @@ rt.setup({
         vim.keymap.set("n", "<space>rca", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
     server = config({
-      flags = {
-        debounce_text_changes = 150,
-      },
-      settings = {
-        ["rust-analyzer"] = {
-          checkOnSave = {
-            command = "clippy",
-          },
-          assist = {
-            importGranularity = "module",
-            importPrefix = "by_self",
-          },
-          cargo = {
-            loadOutDirsFromCheck = true,
-          },
-          procMacro = {
-            enable = true,
-          },
+        flags = {
+            debounce_text_changes = 150,
         },
-      },
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                },
+                procMacro = {
+                    enable = true,
+                },
+            },
+        },
     })
 })
 
-lspconfig.tsserver.setup(config(require"config.lsp.settings.tsserver"))
+lspconfig.tsserver.setup(config(require "config.lsp.settings.tsserver"))
 lspconfig.lua_ls.setup(config({
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
     },
-  },
 }))
 
+lspconfig.ocamllsp.setup(config {})
 lspconfig.jsonls.setup(config({
     init_options = {
-      provideFormatter = true
+        provideFormatter = true
     }
 }))
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = "*.astro", command = "set filetype=astro"})
-lspconfig.astro.setup(config{})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.astro", command = "set filetype=astro" })
+lspconfig.astro.setup(config {})
 
-lspconfig.graphql.setup(config{})
+lspconfig.graphql.setup(config {})
 
-lspconfig.bashls.setup(config{})
+lspconfig.bashls.setup(config {})
 
-lspconfig.svelte.setup(config{})
+lspconfig.svelte.setup(config {})
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead'}, { pattern = "*.bicep", command = "set filetype=bicep"})
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = "*.bicep", command = "set filetype=bicep" })
 lspconfig.bicep.setup(config {})
 
-lspconfig.prismals.setup(config  {})
+lspconfig.prismals.setup(config {})
 
 lspconfig.tailwindcss.setup(config {})
 
-lspconfig.hulkls.setup({})
+lspconfig.hulkls.setup(config {
+})
 
 -- format on save
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = {"*.json", "*.ts", "*.tsx", "*.rs", "*.svelte", "*.bicep"}, callback = function ()
-     vim.lsp.buf.format({
-        timeout_ms = 3000,
-        buffer = buf,
+vim.api.nvim_create_autocmd("BufWritePre",
+    {
+        pattern = { "*.json", "*.ts", "*.lua", "*.tsx", "*.rs", "*.svelte", "*.bicep" },
+        callback = function()
+            vim.lsp.buf.format({
+                timeout_ms = 3000,
+                buffer = buf,
+            })
+        end
     })
-end})
 
 require("config.lsp.handler").setup()
