@@ -16,9 +16,14 @@ return {
     'windwp/nvim-autopairs',
     'chrisbra/Colorizer',
     'tpope/vim-surround',
-    'github/copilot.vim',
+    -- 'github/copilot.vim',
     -- Comment
     'JoosepAlviste/nvim-ts-context-commentstring',
     -- Themes
     { "catppuccin/nvim", as = "catppuccin" },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    }
 }
