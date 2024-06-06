@@ -9,6 +9,7 @@ return {
         -- local sn = ls.snippet_node
         local t = ls.text_node
         local i = ls.insert_node
+        local rep = require("luasnip.extras").rep
         -- local f = ls.function_node
         -- local c = ls.choice_node
         -- local d = ls.dynamic_node
@@ -22,14 +23,14 @@ return {
 
         ls.add_snippets("rust", {
             s("rlc", {
-                t({"#[component]", "pub fn "}),
+                t({ "#[component]", "pub fn " }),
                 i(1),
                 t("(cx: Scope) -> impl IntoView { "),
                 i(2),
                 t(" }"),
             }),
             s("afn", {
-                t({"async fn "}),
+                t({ "async fn " }),
                 i(1),
                 t("() "),
                 i(2),
@@ -38,8 +39,18 @@ return {
                 t(" }"),
             }),
         })
-        vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-        vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-        vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+        ls.add_snippets("typescriptreact", {
+            s("rfc", {
+                t({ "function " }),
+                i(1),
+                t({ "() {", "\treturn (", "\t\t" }),
+                i(2),
+                t({ ")", "}", "export default " }),
+                rep(1),
+            })
+        })
+        vim.keymap.set({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
     end
 }
