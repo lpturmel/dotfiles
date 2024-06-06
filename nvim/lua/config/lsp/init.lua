@@ -95,36 +95,70 @@ lsp_installer.setup({
     },
 })
 
-rt.setup({
-    on_attach = function()
-        -- Hover actions
-        vim.keymap.set("n", "<space>rha", rt.hover_actions.hover_actions, { buffer = bufnr })
-        -- Code action groups
-        vim.keymap.set("n", "<space>rca", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-    server = config({
-        flags = {
-            debounce_text_changes = 150,
-        },
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy",
-                },
-                assist = {
-                    importGranularity = "module",
-                    importPrefix = "by_self",
-                },
-                cargo = {
-                    loadOutDirsFromCheck = true,
-                },
-                procMacro = {
-                    enable = true,
+vim.g.rustaceanvim = {
+    server = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy",
+            },
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true,
+            },
+            procMacro = {
+                enable = true,
+                ignored = {
+                    leptos_macro = {
+                        -- optional: --
+                        -- "component",
+                        "server",
+                    },
                 },
             },
         },
-    })
-})
+    }
+}
+
+-- rt.setup({
+--     on_attach = function()
+--         -- Hover actions
+--         vim.keymap.set("n", "<space>rha", rt.hover_actions.hover_actions, { buffer = bufnr })
+--         -- Code action groups
+--         vim.keymap.set("n", "<space>rca", rt.code_action_group.code_action_group, { buffer = bufnr })
+--     end,
+--     server = config({
+--         flags = {
+--             debounce_text_changes = 150,
+--         },
+--         settings = {
+--             ["rust-analyzer"] = {
+--                 checkOnSave = {
+--                     command = "clippy",
+--                 },
+--                 assist = {
+--                     importGranularity = "module",
+--                     importPrefix = "by_self",
+--                 },
+--                 cargo = {
+--                     loadOutDirsFromCheck = true,
+--                 },
+--                 procMacro = {
+--                     enable = true,
+--                     ignored = {
+--                         leptos_macro = {
+--                             -- optional: --
+--                             -- "component",
+--                             "server",
+--                         },
+--                     },
+--                 },
+--             },
+--         },
+--     })
+-- })
 
 lspconfig.tsserver.setup(config(require "config.lsp.settings.tsserver"))
 lspconfig.lua_ls.setup(config({
@@ -157,21 +191,22 @@ lspconfig.jsonls.setup(config({
     }
 }))
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.astro", command = "set filetype=astro" })
 lspconfig.astro.setup(config {})
 
 lspconfig.graphql.setup(config {})
 
 lspconfig.bashls.setup(config {})
+lspconfig.sourcekit.setup(config {})
 
 lspconfig.svelte.setup(config {})
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = "*.bicep", command = "set filetype=bicep" })
 lspconfig.bicep.setup(config {})
 
 lspconfig.prismals.setup(config {})
 
-lspconfig.tailwindcss.setup(config {})
+lspconfig.tailwindcss.setup(config {
+    filetypes = { "html", "javascript", "typescript", "typescriptreact", "rust" },
+})
 
 lspconfig.hulkls.setup(config {
 })
@@ -187,5 +222,11 @@ vim.api.nvim_create_autocmd("BufWritePre",
             })
         end
     })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.rs",
+    callback = function()
+        vim.fn.system("leptosfmt ./**/*.rs")
+    end
+})
 
 require("config.lsp.handler").setup()
