@@ -7,10 +7,10 @@ if not nvim_lsp_ok then
     return
 end
 
-local rt_ok, rt = pcall(require, "rust-tools")
-if not rt_ok then
-    return
-end
+-- local rt_ok, rt = pcall(require, "rust-tools")
+-- if not rt_ok then
+--     return
+-- end
 local default_capabilities = vim.lsp.protocol.make_client_capabilities()
 default_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -95,70 +95,6 @@ lsp_installer.setup({
     },
 })
 
-vim.g.rustaceanvim = {
-    server = {
-        ["rust-analyzer"] = {
-            checkOnSave = {
-                command = "clippy",
-            },
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true,
-            },
-            procMacro = {
-                enable = true,
-                ignored = {
-                    leptos_macro = {
-                        -- optional: --
-                        -- "component",
-                        "server",
-                    },
-                },
-            },
-        },
-    }
-}
-
--- rt.setup({
---     on_attach = function()
---         -- Hover actions
---         vim.keymap.set("n", "<space>rha", rt.hover_actions.hover_actions, { buffer = bufnr })
---         -- Code action groups
---         vim.keymap.set("n", "<space>rca", rt.code_action_group.code_action_group, { buffer = bufnr })
---     end,
---     server = config({
---         flags = {
---             debounce_text_changes = 150,
---         },
---         settings = {
---             ["rust-analyzer"] = {
---                 checkOnSave = {
---                     command = "clippy",
---                 },
---                 assist = {
---                     importGranularity = "module",
---                     importPrefix = "by_self",
---                 },
---                 cargo = {
---                     loadOutDirsFromCheck = true,
---                 },
---                 procMacro = {
---                     enable = true,
---                     ignored = {
---                         leptos_macro = {
---                             -- optional: --
---                             -- "component",
---                             "server",
---                         },
---                     },
---                 },
---             },
---         },
---     })
--- })
 
 lspconfig.tsserver.setup(config(require "config.lsp.settings.tsserver"))
 lspconfig.lua_ls.setup(config({
@@ -225,7 +161,16 @@ vim.api.nvim_create_autocmd("BufWritePre",
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.rs",
     callback = function()
-        vim.fn.system("leptosfmt ./**/*.rs")
+        local buf = vim.api.nvim_get_current_buf()
+        local file = vim.api.nvim_buf_get_name(buf)
+
+        vim.fn.jobstart({ "leptosfmt", file }, {
+            on_exit = function(_, exit_code)
+                if exit_code == 0 then
+                    vim.api.nvim_command("edit")
+                end
+            end
+        })
     end
 })
 
