@@ -10,7 +10,6 @@ return {
     'onsails/lspkind-nvim',
     'tjdevries/nlua.nvim',
     'euclidianAce/BetterLua.vim',
-    'simrat39/rust-tools.nvim',
     -- Utils
     'nvim-lua/popup.nvim',
     'windwp/nvim-autopairs',
@@ -24,6 +23,6 @@ return {
     {
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
-        lazy = false, -- This plugin is already lazy
+        lazy = false,   -- This plugin is already lazy
     }
 }

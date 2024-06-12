@@ -7,10 +7,6 @@ if not nvim_lsp_ok then
     return
 end
 
--- local rt_ok, rt = pcall(require, "rust-tools")
--- if not rt_ok then
---     return
--- end
 local default_capabilities = vim.lsp.protocol.make_client_capabilities()
 default_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
