@@ -58,6 +58,10 @@ local function config(_config)
                 vim.lsp.buf.code_action()
             end, opts)
 
+            vim.keymap.set('n', '<space>h', function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end, opts)
+
             vim.keymap.set('n', '[d', function()
                 vim.diagnostic.goto_prev({ border = "rounded" })
             end, opts)
