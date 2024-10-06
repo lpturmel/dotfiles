@@ -23,63 +23,6 @@ configs.hulkls = {
 local function config(_config)
     return vim.tbl_deep_extend("force", {
         capabilities = default_capabilities,
-        -- on_attach = function()
-            -- local opts = { noremap = true, silent = true }
-            --
-            -- vim.keymap.set("n", "gD", function()
-            --     vim.lsp.buf.declaration()
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "gd", function()
-            --     vim.lsp.buf.definition()
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "K", function()
-            --     vim.lsp.buf.hover()
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "gi", function()
-            --     vim.lsp.buf.implementation()
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "<C-k>", function()
-            --     vim.lsp.buf.signature_help()
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "gr", function()
-            --     vim.lsp.buf.references()
-            -- end, opts)
-            --
-            -- vim.keymap.set('n', '<space>rn', function()
-            --     vim.lsp.buf.rename()
-            -- end, opts)
-            --
-            -- vim.keymap.set('n', '<space>ca', function()
-            --     vim.lsp.buf.code_action()
-            -- end, opts)
-            --
-            -- vim.keymap.set('n', '<space>h', function()
-            --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            -- end, opts)
-            --
-            -- vim.keymap.set('n', '[d', function()
-            --     vim.diagnostic.goto_prev({ border = "rounded" })
-            -- end, opts)
-            --
-            -- vim.keymap.set(
-            --     "n",
-            --     "gl",
-            --     function()
-            --         vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })
-            --     end, opts)
-            -- vim.keymap.set("n", "<C-s>", function()
-            --     vim.diagnostic.goto_next({ border = "rounded" })
-            -- end, opts)
-            --
-            -- vim.keymap.set("n", "<leader>q", function()
-            --     vim.diagnostic.setloclist()
-            -- end, opts)
-        -- end
     }, _config or {})
 end
 
