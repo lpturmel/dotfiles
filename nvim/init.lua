@@ -30,3 +30,7 @@ require('config.lsp')
 
 -- theme
 require('theme')
+
+vim.cmd [[
+  highlight Normal guibg=NONE ctermbg=NONE
+]]

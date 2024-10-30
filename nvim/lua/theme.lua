@@ -4,9 +4,13 @@ if not ok then return end
 local flavour = "mocha"
 vim.g["catppuccin_flavour"] = flavour
 
-local palette = require"catppuccin.palettes".get_palette(flavour)
+cp.setup{
+    transparent_background = true,
+    term_colors = true,
+    styles = {
+        floats = "transparent",
+        sidebars = "transparent",
+    },
+}
 
-cp.setup{}
-
-vim.api.nvim_command('colorscheme catppuccin')
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = palette.base })
+vim.cmd("colorscheme catppuccin")
