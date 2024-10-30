@@ -171,6 +171,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             function()
                 vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })
             end, { buffer = 0 })
+
         vim.keymap.set("n", "<C-s>", function()
             vim.diagnostic.goto_next({ border = "rounded" })
         end, { buffer = 0 })
