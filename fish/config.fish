@@ -1,8 +1,11 @@
 alias vim="nvim"
-alias ls="lsd"
 alias cat="bat"
 alias rm="rm -rf"
 alias grep="rg"
+alias ls="eza --icons=always"
+eval "$(zoxide init fish)"
+
+alias cd="z"
 
 starship init fish | source
 
