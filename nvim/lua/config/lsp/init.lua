@@ -2,10 +2,6 @@ local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
     return
 end
-local nvim_lsp_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not nvim_lsp_ok then
-    return
-end
 
 local default_capabilities = vim.lsp.protocol.make_client_capabilities()
 default_capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -26,19 +22,8 @@ local function config(_config)
     }, _config or {})
 end
 
-lsp_installer.setup({
-    ensure_installed = {
-        "jsonls",
-        "rust_analyzer",
-        "ts_ls",
-        "astro",
-        "tailwindcss",
-        "bashls",
-        "svelte",
-        "gopls",
-    },
-})
 
+lspconfig.zls.setup(config {})
 lspconfig.gopls.setup(config {})
 lspconfig.ts_ls.setup(config(require "config.lsp.settings.ts_ls"))
 -- lspconfig.lua_ls.setup(config({

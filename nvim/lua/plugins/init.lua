@@ -5,7 +5,6 @@ return {
     -- LSP
     'nvim-treesitter/playground',
     'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
     'folke/lsp-colors.nvim',
     'onsails/lspkind-nvim',
     'tjdevries/nlua.nvim',
