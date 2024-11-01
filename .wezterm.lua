@@ -9,6 +9,7 @@ config.font_size = 18
 
 config.enable_tab_bar = false
 config.window_decorations = 'RESIZE'
+config.cursor_blink_rate = 0
 
 -- Colors
 config.color_scheme = 'catppuccin-mocha'
