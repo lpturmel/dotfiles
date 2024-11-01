@@ -26,28 +26,28 @@ end
 lspconfig.zls.setup(config {})
 lspconfig.gopls.setup(config {})
 lspconfig.ts_ls.setup(config(require "config.lsp.settings.ts_ls"))
--- lspconfig.lua_ls.setup(config({
---     settings = {
---         Lua = {
---             runtime = {
---                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---                 version = 'LuaJIT',
---             },
---             diagnostics = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = { 'vim' },
---             },
---             workspace = {
---                 -- Make the server aware of Neovim runtime files
---                 library = vim.api.nvim_get_runtime_file("", true),
---             },
---             -- Do not send telemetry data containing a randomized but unique identifier
---             telemetry = {
---                 enable = false,
---             },
---         },
---     },
--- }))
+lspconfig.lua_ls.setup(config({
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+}))
 
 lspconfig.ocamllsp.setup(config {})
 lspconfig.jsonls.setup(config({
@@ -66,6 +66,8 @@ lspconfig.sourcekit.setup(config {})
 lspconfig.svelte.setup(config {})
 
 lspconfig.bicep.setup(config {})
+lspconfig.html.setup(config {})
+lspconfig.marksman.setup(config {})
 
 lspconfig.prismals.setup(config {})
 

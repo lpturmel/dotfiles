@@ -8,16 +8,18 @@ return {
         mason.setup()
         mason_lspconfig.setup({
             ensure_installed = {
-                "pyright",
-                "tsserver",
-                "sumneko_lua",
+                "ts_ls",
+                "lua_ls",
                 "jsonls",
                 "zls",
                 "tailwindcss",
+                "astro",
+                "bicep",
                 "cssls",
                 "html",
-                "dockerls",
-                "yamlls",
+                "marksman",
+                "sqlls"
+
             }
         })
     end
