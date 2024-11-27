@@ -25,6 +25,7 @@ end
 
 lspconfig.zls.setup(config {})
 lspconfig.gopls.setup(config {})
+lspconfig.omnisharp.setup(config {})
 lspconfig.ts_ls.setup(config(require "config.lsp.settings.ts_ls"))
 lspconfig.lua_ls.setup(config({
     settings = {
@@ -81,7 +82,7 @@ lspconfig.hulkls.setup(config {
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre",
     {
-        pattern = { "*.json", "*.ts", "*.lua", "*.tsx", "*.rs", "*.svelte", "*.bicep" },
+        pattern = { "*.json", "*.ts", "*.lua", "*.tsx", "*.rs", "*.svelte", "*.bicep", "*.cs" },
         callback = function()
             vim.lsp.buf.format({
                 timeout_ms = 3000,
@@ -89,21 +90,21 @@ vim.api.nvim_create_autocmd("BufWritePre",
             })
         end
     })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.rs",
-    callback = function()
-        local buf = vim.api.nvim_get_current_buf()
-        local file = vim.api.nvim_buf_get_name(buf)
-
-        vim.fn.jobstart({ "leptosfmt", file }, {
-            on_exit = function(_, exit_code)
-                if exit_code == 0 then
-                    vim.api.nvim_command("edit")
-                end
-            end
-        })
-    end
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = "*.rs",
+--     callback = function()
+--         local buf = vim.api.nvim_get_current_buf()
+--         local file = vim.api.nvim_buf_get_name(buf)
+--
+--         vim.fn.jobstart({ "leptosfmt", file }, {
+--             on_exit = function(_, exit_code)
+--                 if exit_code == 0 then
+--                     vim.api.nvim_command("edit")
+--                 end
+--             end
+--         })
+--     end
+-- })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)

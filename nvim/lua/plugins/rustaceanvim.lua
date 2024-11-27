@@ -10,6 +10,9 @@ return {
                 vim.keymap.set("n", "<space>co", function()
                     vim.cmd.RustLsp('openCargo')
                 end, opts)
+                vim.keymap.set("n", "<space>od", function()
+                    vim.cmd.RustLsp('openDocs')
+                end, opts)
             end
         })
 
@@ -17,6 +20,9 @@ return {
             server = {
                 default_settings = {
                     ["rust-analyzer"] = {
+                        rustfmt = {
+                            extraArgs = { "+nightly" },
+                        },
                         checkOnSave = {
                             command = "clippy",
                         },
