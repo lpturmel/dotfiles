@@ -17,6 +17,11 @@ return {
         })
 
         vim.g.rustaceanvim = {
+            tools = {
+                float_win_config = {
+                    border = "rounded",
+                }
+            },
             server = {
                 default_settings = {
                     ["rust-analyzer"] = {
