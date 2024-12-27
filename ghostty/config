@@ -1,0 +1,5 @@
+theme = catppuccin-mocha
+font-family = "Hack Nerd Font"
+font-size = 18
+background-opacity = 0.95
+macos-titlebar-style = hidden
