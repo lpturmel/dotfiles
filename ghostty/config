@@ -3,3 +3,7 @@ font-family = "Hack Nerd Font"
 font-size = 18
 background-opacity = 0.95
 macos-titlebar-style = hidden
+window-decoration = false
+shell-integration = fish
+cursor-style-blink = false
+shell-integration-features = no-cursor
