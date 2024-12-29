@@ -2,6 +2,7 @@ theme = catppuccin-mocha
 font-family = "Hack Nerd Font"
 font-size = 18
 background-opacity = 0.95
+background-blur-radius = 20
 macos-titlebar-style = hidden
 window-decoration = false
 shell-integration = fish
