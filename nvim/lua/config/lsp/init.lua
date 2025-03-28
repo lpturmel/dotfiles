@@ -3,8 +3,10 @@ if not status_ok then
     return
 end
 
-local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-default_capabilities.textDocument.completion.completionItem.snippetSupport = true
+local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
+
+-- local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- default_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local configs = require 'lspconfig.configs'
 
@@ -18,7 +20,8 @@ configs.hulkls = {
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        capabilities = default_capabilities,
+        -- capabilities = default_capabilities,
+        capabilities = blink_capabilities,
     }, _config or {})
 end
 
@@ -26,6 +29,7 @@ end
 lspconfig.zls.setup(config {})
 lspconfig.gopls.setup(config {})
 lspconfig.omnisharp.setup(config {})
+lspconfig.wgsl_analyzer.setup(config {})
 lspconfig.ts_ls.setup(config(require "config.lsp.settings.ts_ls"))
 lspconfig.lua_ls.setup(config({
     settings = {
@@ -171,3 +175,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 require("config.lsp.handler").setup()
+
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end

@@ -36,7 +36,8 @@ return {
                             importPrefix = "by_self",
                         },
                         cargo = {
-                            loadOutDirsFromCheck = true
+                            loadOutDirsFromCheck = true,
+                            allFeatures = true,
                         },
                         procMacro = {
                             enable = true,
