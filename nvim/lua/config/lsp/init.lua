@@ -4,10 +4,6 @@ if not status_ok then
 end
 
 local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
-
--- local default_capabilities = vim.lsp.protocol.make_client_capabilities()
--- default_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 local configs = require 'lspconfig.configs'
 
 configs.hulkls = {
@@ -53,35 +49,26 @@ lspconfig.lua_ls.setup(config({
         },
     },
 }))
-
 lspconfig.ocamllsp.setup(config {})
 lspconfig.jsonls.setup(config({
     init_options = {
         provideFormatter = true
     }
 }))
-
 lspconfig.astro.setup(config {})
-
 lspconfig.graphql.setup(config {})
-
 lspconfig.bashls.setup(config {})
 lspconfig.sourcekit.setup(config {})
-
 lspconfig.svelte.setup(config {})
-
 lspconfig.bicep.setup(config {})
 lspconfig.html.setup(config {})
 lspconfig.marksman.setup(config {})
-
 lspconfig.prismals.setup(config {})
-
 lspconfig.tailwindcss.setup(config {
     filetypes = { "html", "javascript", "typescript", "typescriptreact", "rust" },
 })
 
-lspconfig.hulkls.setup(config {
-})
+lspconfig.hulkls.setup(config {})
 
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre",
@@ -94,28 +81,13 @@ vim.api.nvim_create_autocmd("BufWritePre",
             })
         end
     })
--- vim.api.nvim_create_autocmd("BufWritePre", {
---     pattern = "*.rs",
---     callback = function()
---         local buf = vim.api.nvim_get_current_buf()
---         local file = vim.api.nvim_buf_get_name(buf)
---
---         vim.fn.jobstart({ "leptosfmt", file }, {
---             on_exit = function(_, exit_code)
---                 if exit_code == 0 then
---                     vim.api.nvim_command("edit")
---                 end
---             end
---         })
---     end
--- })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         -- local bufnr = args.buf
-        local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
-
-        local opts = { noremap = true, silent = true }
+        -- local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
+        --
+        -- local opts = { noremap = true, silent = true }
 
         vim.keymap.set("n", "gD", function()
             vim.lsp.buf.declaration()
