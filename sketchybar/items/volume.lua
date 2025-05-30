@@ -15,8 +15,8 @@ local volume_slider = sbar.add("slider", 100, {
             color = colors.bg2,
         },
         knob = {
-            string = "􀀁",
-            drawing = false,
+            string = icons.text.slider.knob,
+            drawing = true,
         },
     },
 })
@@ -56,8 +56,8 @@ volume_slider:subscribe("volume_change", function(env)
         icon = icons.text.volume._66
     elseif volume > 10 then
         icon = icons.text.volume._33
-    elseif volume > 0 then
-        icon = icons.text.volume._10
+    elseif volume == 0 then
+        icon = icons.text.volume._0
     end
 
     volume_icon:set({ label = icon })
