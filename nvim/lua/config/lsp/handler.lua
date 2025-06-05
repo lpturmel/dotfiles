@@ -1,7 +1,5 @@
 local M = {}
 
-local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
@@ -15,7 +13,7 @@ M.setup = function()
 
     local config = {
         -- disable virtual text
-        virtual_text = false,
+        virtual_text = true,
         -- show signs
         signs = {
             active = signs,
@@ -34,14 +32,6 @@ M.setup = function()
     }
 
     vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = border,
-    })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = border,
-    })
 end
 
 return M

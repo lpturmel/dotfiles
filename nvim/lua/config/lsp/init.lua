@@ -125,10 +125,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, { buffer = 0 })
 
-        vim.keymap.set('n', '[d', function()
-            vim.diagnostic.goto_prev({ border = "rounded" })
-        end, { buffer = 0 })
-
         vim.keymap.set(
             "n",
             "gl",
@@ -137,7 +133,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end, { buffer = 0 })
 
         vim.keymap.set("n", "<C-s>", function()
-            vim.diagnostic.goto_next({ border = "rounded" })
+            vim.diagnostic.open_float()
         end, { buffer = 0 })
 
         vim.keymap.set("n", "<leader>q", function()
