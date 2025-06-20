@@ -4,19 +4,10 @@ if not status_ok then
 end
 
 local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
-local configs = require 'lspconfig.configs'
 
-configs.hulkls = {
-    default_config = {
-        cmd = { 'hulkls' },
-        root_dir = lspconfig.util.root_pattern('main.json'),
-        filetypes = { 'json' }
-    },
-}
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
-        -- capabilities = default_capabilities,
         capabilities = blink_capabilities,
     }, _config or {})
 end
@@ -25,30 +16,44 @@ end
 lspconfig.zls.setup(config {})
 lspconfig.gopls.setup(config {})
 lspconfig.omnisharp.setup(config {})
-lspconfig.wgsl_analyzer.setup(config {})
+-- lspconfig.wgsl_analyzer.setup(config {})
 lspconfig.ts_ls.setup(config(require "config.lsp.settings.ts_ls"))
-lspconfig.lua_ls.setup(config({
+
+vim.lsp.config.hulkls = {
+    cmd = { 'hulkls' },
+    filetypes = { 'json' },
+    -- root_dir = lspconfig.util.root_pattern('main.json'),
+    root_markers = { 'main.json' },
+    capabilities = blink_capabilities,
+}
+
+vim.lsp.enable('hulkls')
+
+vim.lsp.config.lua_ls = {
+    cmd = { 'lua-language-server' },
+    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+    capabilities = blink_capabilities,
+    filetypes = { "lua" },
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
                 globals = { 'vim' },
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
                 enable = false,
             },
         },
     },
-}))
+}
+
+vim.lsp.enable('lua_ls')
+
 lspconfig.ocamllsp.setup(config {})
 lspconfig.jsonls.setup(config({
     init_options = {
@@ -67,8 +72,6 @@ lspconfig.prismals.setup(config {})
 lspconfig.tailwindcss.setup(config {
     filetypes = { "html", "javascript", "typescript", "typescriptreact", "rust" },
 })
-
-lspconfig.hulkls.setup(config {})
 
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre",
