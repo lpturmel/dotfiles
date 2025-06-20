@@ -19,7 +19,9 @@ return {
                 keyword = {},
                 comment = { 'italic' },
             },
-            overrides = {},
+            overrides = {
+                ['@keyword.coroutine'] = { link = 'Keyword' }
+            },
             color_overrides = {},
         })
     end
