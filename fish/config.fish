@@ -12,6 +12,9 @@ starship init fish | source
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+# Vulkan stuff
+set -gx DYLD_LIBRARY_PATH (brew --prefix)/lib $DYLD_LIBRARY_PATH
+set -gx VK_LAYER_PATH (brew --prefix)/share/vulkan/explicit_layer.d
 
 # opam configuration
 source /Users/lpturmel/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

@@ -55,11 +55,11 @@ vim.lsp.config.lua_ls = {
 vim.lsp.enable('lua_ls')
 
 lspconfig.ocamllsp.setup(config {})
-lspconfig.jsonls.setup(config({
-    init_options = {
-        provideFormatter = true
-    }
-}))
+-- lspconfig.jsonls.setup(config({
+--     init_options = {
+--         provideFormatter = true
+--     }
+-- }))
 lspconfig.astro.setup(config {})
 lspconfig.graphql.setup(config {})
 lspconfig.bashls.setup(config {})

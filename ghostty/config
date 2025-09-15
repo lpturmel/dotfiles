@@ -1,10 +1,12 @@
 theme = evergarden-winter-green
 font-family = "Hack Nerd Font"
 font-size = 18
-background-opacity = 0.95
+background-opacity = 0.90
 background-blur-radius = 20
 macos-titlebar-style = hidden
-window-decoration = false
+window-decoration = true
 shell-integration = fish
 cursor-style-blink = false
 shell-integration-features = no-cursor
+window-padding-y = 10
+window-padding-x = 10
